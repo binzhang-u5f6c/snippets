@@ -1,0 +1,412 @@
+priority -50
+
+###########################################################################
+#                            TEXTMATE SNIPPETS                            #
+###########################################################################
+
+snippet docs "docstring for script or module" b
+# -*- coding: utf-8 -*-
+"""${1:summary}.
+
+${2:description}
+"""
+$0
+endsnippet
+
+snippet ifmain "ifmain" b
+if __name__ == "__main__":
+	${1:${VISUAL:main()}}
+endsnippet
+
+############
+#  import  #
+############
+
+snippet from "from module import name" b
+from ${1:module} import ${2:Stuff}
+endsnippet
+
+####################
+# if / else / elif #
+####################
+
+snippet if "if" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+endsnippet
+
+snippet ife "if/else" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+else:
+	${3:pass}
+endsnippet
+
+snippet ifee "if/elif/else" b
+if ${1:condition}:
+	${2:${VISUAL:pass}}
+elif ${3:condition}:
+	${4:pass}
+else:
+	${5:pass}
+endsnippet
+
+###########
+#  while  #
+###########
+
+snippet while "while" b
+while ${1:condition}:
+	${2:${VISUAL:pass}}
+endsnippet
+
+#########
+#  for  #
+#########
+
+snippet for "for loop" b
+for ${1:item} in ${2:iterable}:
+	${3:${VISUAL:pass}}
+endsnippet
+
+##########################
+# try / except / finally #
+##########################
+snippet try "try/except" b
+try:
+	${1:${visual:pass}}
+except ${2:exception} as ${3:e}:
+	${4:raise $3}
+endsnippet
+
+snippet trye "try/except/else" b
+try:
+	${1:${visual:pass}}
+except ${2:exception} as ${3:e}:
+	${4:raise $3}
+else:
+	${5:pass}
+endsnippet
+
+snippet tryf "try/except/finally" b
+try:
+	${1:${visual:pass}}
+except ${2:exception} as ${3:e}:
+	${4:raise $3}
+finally:
+	${5:pass}
+endsnippet
+
+snippet tryef "try/except/else/finally" b
+try:
+	${1:${visual:pass}}
+except${2: ${3:exception} as ${4:e}}:
+	${5:raise}
+else:
+	${6:pass}
+finally:
+	${7:pass}
+endsnippet
+
+##########
+#  with  #
+##########
+
+snippet with "with" b
+with ${1:expr} as ${2:var}:
+	${3:${VISUAL:pass}}
+$0
+endsnippet
+
+########################################
+# Class & Special Method Name Snippets #
+########################################
+
+snippet class "class with docstrings" b
+class ${1:MyClass}(${2:object}):
+	"""${3:TODO: Docstring for $1.}"""
+
+	def __init__(self${4:, args}):
+		"""__init__ for $1."""
+		${5:super($1, self).__init__()}
+		$0
+endsnippet
+
+snippet contain "methods for emulating a container type" b
+def __len__(self):
+	"""Methods for emulating a container type."""
+	${1:pass}
+
+def __getitem__(self, key):
+	"""Methods for emulating a container type."""
+	${2:pass}
+
+def __setitem__(self, key, value):
+	"""Methods for emulating a container type."""
+	${3:pass}
+
+def __delitem__(self, key):
+	"""Methods for emulating a container type."""
+	${4:pass}
+
+def __iter__(self):
+	"""Methods for emulating a container type."""
+	${5:pass}
+
+def __reversed__(self):
+	"""Methods for emulating a container type."""
+	${6:pass}
+
+def __contains__(self, item):
+	"""Methods for emulating a container type."""
+	${7:pass}
+endsnippet
+
+snippet context "context manager methods" b
+def __enter__(self):
+	"""Context manager methods."""
+	${1:pass}
+
+def __exit__(self, exc_type, exc_value, traceback):
+	"""Context manager methods."""
+	${2:pass}
+endsnippet
+
+snippet attr "methods for customizing attribute access" b
+def __getattr__(self, name):
+	"""Methods for customizing attribute access."""
+	${1:pass}
+
+def __setattr__(self, name, value):
+	"""Methods for customizing attribute access."""
+	${2:pass}
+
+def __delattr__(self, name):
+	"""Methods for customizing attribute access."""
+	${3:pass}
+endsnippet
+
+
+snippet desc "methods implementing descriptors" b
+def __get__(self, instance, owner):
+	"""Methods implementing descriptors."""
+	${1:pass}
+
+def __set__(self, instance, value):
+	"""Methods implementing descriptors."""
+	${2:pass}
+
+def __delete__(self, instance):
+	"""Methods implementing descriptors."""
+	${3:pass}
+endsnippet
+
+
+snippet compare "methods implementing rich comparison"
+def __eq__(self, other):
+	"""Methods implementing rich comparison."""
+	${1:pass}
+
+def __ne__(self, other):
+	"""Methods implementing rich comparison."""
+	${2:pass}
+
+def __lt__(self, other):
+	"""Methods implementing rich comparison."""
+	${3:pass}
+
+def __le__(self, other):
+	"""Methods implementing rich comparison."""
+	${4:pass}
+
+def __gt__(self, other):
+	"""Methods implementing rich comparison."""
+	${5:pass}
+
+def __ge__(self, other):
+	"""Methods implementing rich comparison."""
+	${6:pass}
+
+def __cmp__(self, other):
+	"""Methods implementing rich comparison."""
+	${7:pass}
+endsnippet
+
+
+snippet repr "methods implementing string representation"
+def __repr__(self):
+	"""Methods implementing string representation."""
+	${1:pass}
+
+def __str__(self):
+	"""Methods implementing string representation."""
+	${2:pass}
+
+def __unicode__(self):
+	"""Methods implementing string representation."""
+	${3:pass}
+endsnippet
+
+
+# note: reflected operands and augmented arithmeitc assignements have been
+# intentionally ommited to reduce verbosity.
+snippet numeric "methods for emulating a numeric type" b
+def __add__(self, other):
+	"""Methods for emulating a numeric type."""
+	${1:pass}
+
+def __sub__(self, other):
+	"""Methods for emulating a numeric type."""
+	${2:pass}
+
+def __mul__(self, other):
+	"""Methods for emulating a numeric type."""
+	${3:pass}
+
+def __div__(self, other):
+	"""Methods for emulating a numeric type."""
+	${4:pass}
+
+def __truediv__(self, other):
+	"""Methods for emulating a numeric type."""
+	${5:pass}
+
+def __floordiv__(self, other):
+	"""Methods for emulating a numeric type."""
+	${6:pass}
+
+def __mod__(self, other):
+	"""Methods for emulating a numeric type."""
+	${7:pass}
+
+def __divmod__(self, other):
+	"""Methods for emulating a numeric type."""
+	${8:pass}
+
+def __pow__(self, other):
+	"""Methods for emulating a numeric type."""
+	${9:pass}
+
+def __lshift__(self, other):
+	"""Methods for emulating a numeric type."""
+	${10:pass}
+
+def __rshift__(self, other):
+	"""Methods for emulating a numeric type."""
+	${11:pass}
+
+def __and__(self, other):
+	"""Methods for emulating a numeric type."""
+	${12:pass}
+
+def __xor__(self, other):
+	"""Methods for emulating a numeric type."""
+	${13:pass}
+
+def __or__(self, other):
+	"""Methods for emulating a numeric type."""
+	${14:pass}
+
+def __neg__(self):
+	"""Methods for emulating a numeric type."""
+	${15:pass}
+
+def __pos__(self):
+	"""Methods for emulating a numeric type."""
+	${16:pass}
+
+def __abs__(self):
+	"""Methods for emulating a numeric type."""
+	${17:pass}
+
+def __invert__(self):
+	"""Methods for emulating a numeric type."""
+	${18:pass}
+
+def __complex__(self):
+	"""Methods for emulating a numeric type."""
+	${19:pass}
+
+def __int__(self):
+	"""Methods for emulating a numeric type."""
+	${20:pass}
+
+def __long__(self):
+	"""Methods for emulating a numeric type."""
+	${21:pass}
+
+def __float__(self):
+	"""Methods for emulating a numeric type."""
+	${22:pass}
+
+def __oct__(self):
+	"""Methods for emulating a numeric type."""
+	${22:pass}
+
+def __hex__(self):
+	"""Methods for emulating a numeric type."""
+	${23:pass}
+
+def __index__(self):
+	"""Methods for emulating a numeric type."""
+	${24:pass}
+
+def __coerce__(self, other):
+	"""Methods for emulating a numeric type."""
+	${25:pass}
+endsnippet
+
+#############################
+# functions & class methods #
+#############################
+
+snippet def "function with docstrings" b
+def ${1:function}(${2:arg1}):
+	"""${3:TODO: Docstring for $1.}"""
+	${4:${VISUAL:pass}}
+endsnippet
+
+snippet defc "class method with docstrings" b
+@classmethod
+def ${1:function}(${2:arg1}):
+	"""${3:TODO: Docstring for $1.}"""
+	${4:${VISUAL:pass}}
+endsnippet
+
+snippet defs "static method with docstrings" b
+@staticmethod
+def ${1:function}(${2:arg1}):
+	"""${3:TODO: Docstring for $1.}"""
+	${4:${VISUAL:pass}}
+endsnippet
+
+# doesn't expand when there is a word in front
+snippet /(^|(?<=\W))\./ "self." r
+self.
+endsnippet
+
+##############
+# properties #
+##############
+
+snippet property "property" b
+def ${1:name}():
+	"""${2:TODO: Docstring for $1.}"""
+
+	def fget(self):
+		return self._$1
+
+	def fset(self, value):
+		self._$1 = value
+
+	def fdel(self):
+		del self._$1
+	return locals()
+
+
+$1 = property(**$1(), doc=$1.__doc__)
+endsnippet
+
+######################
+# Assertions & Tests #
+######################
